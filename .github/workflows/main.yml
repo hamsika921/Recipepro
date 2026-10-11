@@ -1,0 +1,42 @@
+name: Build RecipePro APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "recipepro-oct-11-2026-8-38-50-pm.zip"
+      - ".github/workflows/main.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Extract Android project
+        run: |
+          mkdir app-source
+          unzip -q recipepro-oct-11-2026-8-38-50-pm.zip -d app-source
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "9.3.1"
+
+      - name: Build debug APK
+        run: gradle -p app-source assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: RecipePro-APK
+          path: app-source/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
