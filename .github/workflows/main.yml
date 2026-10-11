@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "recipepro-oct-11-2026-8-38-50-pm.zip"
+      - "RecipePro-Terracotta-Light-Dark.zip"
       - ".github/workflows/main.yml"
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       - name: Extract Android project
         run: |
           mkdir app-source
-          unzip -q recipepro-oct-11-2026-8-38-50-pm.zip -d app-source
+          unzip -q RecipePro-Terracotta-Light-Dark.zip -d app-source
 
       - name: Generate debug keystore
         run: |
