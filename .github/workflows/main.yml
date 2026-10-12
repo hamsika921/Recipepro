@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "RecipePro-Terracotta-Rice-Navigation-Fix.zip"
+      - "RecipePro-Terracotta-Collection-Return-Fix.zip"
       - ".github/workflows/main.yml"
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       - name: Extract Android project
         run: |
           mkdir app-source
-          unzip -q RecipePro-Terracotta-Rice-Navigation-Fix.zip -d app-source
+          unzip -q RecipePro-Terracotta-Collection-Return-Fix.zip -d app-source
 
       - name: Generate debug keystore
         run: |
