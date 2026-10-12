@@ -4,6 +4,7 @@ name: Build RecipePro APK
 on:
   workflow_dispatch:
   push:
+    paths:
       - "RecipePro-Terracotta-Rice-Navigation-Fix.zip"
       - ".github/workflows/main.yml"
 
