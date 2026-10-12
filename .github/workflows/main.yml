@@ -4,8 +4,7 @@ name: Build RecipePro APK
 on:
   workflow_dispatch:
   push:
-    paths:
-      - "RecipePro-Terracotta-Light-Dark.zip"
+      - "RecipePro-Terracotta-Rice-Navigation-Fix.zip"
       - ".github/workflows/main.yml"
 
 jobs:
@@ -25,7 +24,7 @@ jobs:
       - name: Extract Android project
         run: |
           mkdir app-source
-          unzip -q RecipePro-Terracotta-Light-Dark.zip -d app-source
+          unzip -q RecipePro-Terracotta-Rice-Navigation-Fix.zip -d app-source
 
       - name: Generate debug keystore
         run: |
